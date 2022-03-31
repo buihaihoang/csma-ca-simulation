@@ -1,0 +1,15 @@
+FlowID: 1 (UDP 10.1.1.2/49153 --> 10.1.1.1/9)
+	TX bitrate: 9.09 kbit/s
+	RX bitrate: 9.10 kbit/s
+	TX Packets: 20
+	RX Packets: 20
+	Mean Delay: 1.00 ms
+	Packet Loss Ratio: 0.00 %
+FlowID: 2 (UDP 10.1.1.1/9 --> 10.1.1.2/49153)
+	TX bitrate: 9.10 kbit/s
+	RX bitrate: 9.11 kbit/s
+	TX Packets: 20
+	RX Packets: 20
+	Mean Delay: 1.21 ms
+	Packet Loss Ratio: 0.00 %
+Loss Flow Ratio: 0.00% (0/2)
