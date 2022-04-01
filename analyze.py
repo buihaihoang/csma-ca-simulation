@@ -8,6 +8,8 @@ et = ET.parse(sys.argv[1])
 
 totalFlows = 0
 lostFlows = 0
+totalClients = 0
+lostClients = []
 # Loop through each flow in flow stats
 for flow in et.findall("FlowStats/Flow"):
     totalFlows += 1
@@ -23,7 +25,8 @@ for flow in et.findall("FlowStats/Flow"):
     desAdd = ipv4flow.get("destinationAddress")
     desPrt = ipv4flow.get("destinationPort")
     print(f"FlowID: {flowId} (UDP {srcAdd}/{srcPrt} --> {desAdd}/{desPrt})")
-
+    if srcPrt != "9":
+        totalClients += 1
     # Get total transmitted and received bytes of the flow
     txBytes = float(flow.get("txBytes"))
     rxBytes = float(flow.get("rxBytes"))
@@ -51,11 +54,15 @@ for flow in et.findall("FlowStats/Flow"):
 
     # Calculate the packet loss ratio
     lostPackets = int(flow.get("lostPackets"))
-    lostFlows += lostPackets != 0
+    if lostPackets != 0:
+        lostFlows += 1
+        lostClients.append(srcAdd)
     packetLossRatio = (txPackets - rxPackets) / txPackets * 100
     print(f"\tPacket Loss Ratio: {packetLossRatio:.2f} %")
     
-print(f"Loss Flow Ratio: {lostFlows/totalFlows*100:.2f}% ({lostFlows}/{totalFlows})")
 file = open("percent.csv", mode = "a" )
 file.write(str(f"{lostFlows/totalFlows*100:.2f} "))
 
+print(f"Lost Flow Ratio: {lostFlows/totalFlows*100:.2f}% ({lostFlows}/{totalFlows})")
+print(f"Lost Clients Ratio: {len(lostClients)/totalClients*100:.2f}% ({len(lostClients)}/{totalClients})")
+print(f"Lost clients: {lostClients}")
