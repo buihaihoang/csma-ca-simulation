@@ -13,7 +13,7 @@ using namespace ns3;
 
 NS_LOG_COMPONENT_DEFINE("FinalProject");
 
-void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, uint32_t simTime)
+void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, uint32_t simTime, uint32_t maxPackets, uint32_t interval, uint32_t serverNode)
 {
   std::cout << "Running simulation with " << nNodes << " nodes..." << std::endl;
 
@@ -81,18 +81,19 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
   UdpEchoServerHelper echoServer(9);
 
   // Instantiate the server on the second node that has CSMA device
-  ApplicationContainer serverApps = echoServer.Install(nodes.Get(0));
+  ApplicationContainer serverApps = echoServer.Install(nodes.Get(serverNode));
   serverApps.Start(Seconds(2.0));
   serverApps.Stop(Seconds(simTime));
 
   // Create a UdpEchoClientHelper and provide the required Attributes - the remote address and port
-  UdpEchoClientHelper echoClient(nodeInterfaces.GetAddress(0), 9);
-  echoClient.SetAttribute("MaxPackets", UintegerValue(10));
-  echoClient.SetAttribute("Interval", TimeValue(Seconds(1)));
+  UdpEchoClientHelper echoClient(nodeInterfaces.GetAddress(serverNode), 9);
+  echoClient.SetAttribute("MaxPackets", UintegerValue(maxPackets));
+  echoClient.SetAttribute("Interval", TimeValue(Seconds(interval)));
   echoClient.SetAttribute("PacketSize", UintegerValue(packetSize));
   // Install the client on every other node
-  for (uint32_t i = 1; i < nNodes; i++)
+  for (uint32_t i = 0; i < nNodes; i++)
   {
+    if (i == serverNode) continue;
     ApplicationContainer clientApp = echoClient.Install(nodes.Get(i));
     clientApp.Start(Seconds(2.0));
     clientApp.Stop(Seconds(simTime));
@@ -127,15 +128,20 @@ int main(int argc, char *argv[])
 
   uint32_t nNodes = 2;       // Initialize number of nodes in the network
   uint32_t packetSize = 512; // Initialize the packet size
+  uint32_t simTime = 15;     // Simulation Time in seconds
+  uint32_t maxPackets = 10;  // Max packets to send
+  uint32_t interval = 1;     // Interval between packets
+  uint32_t serverNode = 0;   // Node to install server app
   bool verbose = false;      // Disable logging by default
   bool pcap = false;         // Disable pcap by default
-  uint32_t simTime = 15;     // Simulation Time in seconds
   bool collectData = false;  // Do not collect data by default
 
   // Allow you to change the parameters via command line argument
   CommandLine cmd;
   cmd.AddValue("nNodes", "Number of nodes/devices", nNodes);
   cmd.AddValue("packetSize", "size of the packet (> 1000 to enable RTS/CTS)", packetSize);
+  cmd.AddValue("maxPackets", "Max packets to send", maxPackets);
+  cmd.AddValue("interval", "Interval between packets", interval);
   cmd.AddValue("verbose", "Enable logging", verbose);
   cmd.AddValue("pcap", "Enable pcap", pcap);
   cmd.AddValue("collectData", "Start collect data for 2 to 30 nodes", collectData);
@@ -145,11 +151,11 @@ int main(int argc, char *argv[])
   {
     for (uint32_t i = 2; i <= 30; i++)
     {
-      experiment(i, packetSize, verbose, pcap, simTime);
+      experiment(i, packetSize, verbose, pcap, simTime, maxPackets, interval, serverNode);
     }
   }
   else
   {
-    experiment(nNodes, packetSize, verbose, pcap, simTime);
+    experiment(nNodes, packetSize, verbose, pcap, simTime, maxPackets, interval, serverNode);
   }
 }

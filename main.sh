@@ -1,10 +1,7 @@
 #! /usr/bin/bash
 
-# Create folder to store data about flows 
 file="main"
 dir="NSFinalProject"
-mkdir -p $dir/flowData
-mkdir -p $dir/animData
 
 # Set the parameters 
 nNodes=7
@@ -22,6 +19,10 @@ fi
 # Copy the  file to scratch and run
 cp $dir/$file.cc scratch/
 ./waf --run "scratch/$file $param"
+
+# Create folder to store data about flows 
+mkdir -p $dir/flowData
+mkdir -p $dir/animData
 
 # Store the data in the flowData folder 
 mv final*.xml $dir/flowData

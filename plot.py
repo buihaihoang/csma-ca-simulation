@@ -8,7 +8,7 @@ import re
 import csv
 
 lst = []
-with open("percent.csv") as f:
+with open(sys.argv[1]) as f:
     read = csv.reader(f, delimiter=",")
     for row in read:
         lst = row
@@ -18,15 +18,15 @@ for i in range(len(lst)):
     lst.remove('')
 for i in range(len(lst)):
     lst[i] = np.float32(lst[i])
-#print(lst)
+#print(len(lst))
 
 tpmNp = np.array(lst, dtype= np.float32)
 #print(tpmNp)
 
 
-axisX = [str(x) for x in range(29)]
+axisX = [x for x in range(29)]
 #rint(axisX)
-plt.bar(axisX, lst, color= 'green')
+plt.plot(axisX, lst, '--xr')
 plt.title("Visualization")
 plt.xlabel("Nodes")
 plt.ylabel("Percentage")
