@@ -8,9 +8,13 @@
 
 ## To analyze
 1. cd into NSFinalProject: ```cd NSFinalProject```
-2. To analyze an XML file: ```python3 flowData/file_name```
-3. To analyze all XML file after running with 2..30 nodes: ```./analyzeAll.sh``` or ```bash analyzeAll```
+2. To analyze an XML file: ```python3 analyze.py flowData/path_to_file```
+3. To analyze all XML file after running with 2..30 nodes: ```./analyzeAll.sh configuration``` or ```bash analyzeAll.sh configuration```
 
 ## To summarize
 1. cd into NSFinalProject: ```cd NSFinalProject```
 2. Run the summarize script to see loss flow ratio of each case: ```./summarize.sh``` or ```bash summarize.sh```
+
+## To plot the summarized data
+1. cd into NSFinalProject: ```cd NSFinalProject```
+2. Run the python script ```python3 plot.py path_to_summary_file```
