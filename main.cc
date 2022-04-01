@@ -6,6 +6,7 @@
 #include "ns3/yans-wifi-helper.h"
 #include "ns3/flow-monitor.h"
 #include "ns3/flow-monitor-helper.h"
+#include "ns3/netanim-module.h"
 #include <cstdio>
 
 using namespace ns3;
@@ -57,7 +58,7 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
   MobilityHelper mobility;
   mobility.SetPositionAllocator("ns3::GridPositionAllocator", "MinX", DoubleValue(0.0), "MinY",
                                 DoubleValue(0.0), "DeltaX", DoubleValue(5.0), "DeltaY",
-                                DoubleValue(10.0), "GridWidth", UintegerValue(3), "LayoutType",
+                                DoubleValue(5.0), "GridWidth", UintegerValue(5), "LayoutType",
                                 StringValue("RowFirst"));
 
   // Set the mobility model to be ns3::ConstantPositionMoblityModel to fixed the position of the devices
@@ -86,8 +87,8 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
 
   // Create a UdpEchoClientHelper and provide the required Attributes - the remote address and port
   UdpEchoClientHelper echoClient(nodeInterfaces.GetAddress(0), 9);
-  echoClient.SetAttribute("MaxPackets", UintegerValue(20));
-  echoClient.SetAttribute("Interval", TimeValue(Seconds(0.5)));
+  echoClient.SetAttribute("MaxPackets", UintegerValue(10));
+  echoClient.SetAttribute("Interval", TimeValue(Seconds(1)));
   echoClient.SetAttribute("PacketSize", UintegerValue(packetSize));
   // Install the client on every other node
   for (uint32_t i = 1; i < nNodes; i++)
@@ -101,7 +102,7 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
   if (pcap)
   {
     // phy.EnablePcapAll("final", true);
-    phy.EnablePcap("final", devices.Get(0), true);
+    phy.EnablePcap("final", devices.Get(2), true);
   }
 
 
@@ -109,6 +110,9 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
   FlowMonitorHelper flowHelper;
   flowMonitor = flowHelper.InstallAll();
 
+  char animfile[100];
+  sprintf(animfile, "anim-%d-nodes.xml", nNodes);
+  AnimationInterface anim(animfile);
   Simulator::Stop(Seconds(simTime));
   Simulator::Run();
 
@@ -127,6 +131,7 @@ int main(int argc, char *argv[])
   bool pcap = false;         // Disable pcap by default
   uint32_t simTime = 15;     // Simulation Time in seconds
   bool collectData = false;  // Do not collect data by default
+
   // Allow you to change the parameters via command line argument
   CommandLine cmd;
   cmd.AddValue("nNodes", "Number of nodes/devices", nNodes);

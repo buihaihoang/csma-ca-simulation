@@ -1,169 +1,178 @@
 FlowID: 1 (UDP 10.1.1.2/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.11 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 2.42 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 8.26 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 2 (UDP 10.1.1.3/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: None
-	TX Packets: 20
-	RX Packets: 0
-	Mean Delay: None
-	Packet Loss Ratio: 100.00 %
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 11.66 ms
+	Packet Loss Ratio: 0.00 %
 FlowID: 3 (UDP 10.1.1.4/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.10 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 7.17 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 12.24 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 4 (UDP 10.1.1.5/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.10 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 8.53 ms
-	Packet Loss Ratio: 0.00 %
-FlowID: 5 (UDP 10.1.1.6/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.09 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 6.79 ms
-	Packet Loss Ratio: 0.00 %
-FlowID: 6 (UDP 10.1.1.7/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
+	TX bitrate: 4.80 kbit/s
 	RX bitrate: None
-	TX Packets: 20
+	TX Packets: 10
 	RX Packets: 0
 	Mean Delay: None
 	Packet Loss Ratio: 100.00 %
+FlowID: 5 (UDP 10.1.1.6/49153 --> 10.1.1.1/9)
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 7.03 ms
+	Packet Loss Ratio: 0.00 %
+FlowID: 6 (UDP 10.1.1.7/49153 --> 10.1.1.1/9)
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.81 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 8.55 ms
+	Packet Loss Ratio: 0.00 %
 FlowID: 7 (UDP 10.1.1.8/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.11 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 8.44 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 10.67 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 8 (UDP 10.1.1.9/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.09 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 8.90 ms
-	Packet Loss Ratio: 0.00 %
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: None
+	TX Packets: 10
+	RX Packets: 0
+	Mean Delay: None
+	Packet Loss Ratio: 100.00 %
 FlowID: 9 (UDP 10.1.1.10/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.09 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 9.27 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 11.43 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 10 (UDP 10.1.1.11/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
+	TX bitrate: 4.80 kbit/s
 	RX bitrate: None
-	TX Packets: 20
+	TX Packets: 10
 	RX Packets: 0
 	Mean Delay: None
 	Packet Loss Ratio: 100.00 %
 FlowID: 11 (UDP 10.1.1.12/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: None
-	TX Packets: 20
-	RX Packets: 0
-	Mean Delay: None
-	Packet Loss Ratio: 100.00 %
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.79 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 8.76 ms
+	Packet Loss Ratio: 0.00 %
 FlowID: 12 (UDP 10.1.1.13/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.10 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 9.05 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 8.73 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 13 (UDP 10.1.1.14/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.10 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 9.24 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.79 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 11.72 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 14 (UDP 10.1.1.15/49153 --> 10.1.1.1/9)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.09 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 10.64 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 11.02 ms
 	Packet Loss Ratio: 0.00 %
-FlowID: 15 (UDP 10.1.1.1/9 --> 10.1.1.9/49153)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.09 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 4.88 ms
+FlowID: 15 (UDP 10.1.1.1/9 --> 10.1.1.12/49153)
+	TX bitrate: 4.79 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 5.36 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 16 (UDP 10.1.1.1/9 --> 10.1.1.14/49153)
-	TX bitrate: 9.10 kbit/s
-	RX bitrate: 9.11 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 4.48 ms
+	TX bitrate: 4.79 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 5.27 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 17 (UDP 10.1.1.1/9 --> 10.1.1.13/49153)
-	TX bitrate: 9.10 kbit/s
-	RX bitrate: 9.10 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 4.86 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.81 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 4.09 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 18 (UDP 10.1.1.1/9 --> 10.1.1.4/49153)
-	TX bitrate: 9.10 kbit/s
-	RX bitrate: 9.10 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 4.91 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.80 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 4.95 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 19 (UDP 10.1.1.1/9 --> 10.1.1.10/49153)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.10 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 4.42 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.81 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 5.16 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 20 (UDP 10.1.1.1/9 --> 10.1.1.6/49153)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 9.10 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 5.12 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.81 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 3.91 ms
 	Packet Loss Ratio: 0.00 %
 FlowID: 21 (UDP 10.1.1.1/9 --> 10.1.1.2/49153)
-	TX bitrate: 9.11 kbit/s
-	RX bitrate: 9.12 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 2.11 ms
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.81 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 4.82 ms
 	Packet Loss Ratio: 0.00 %
-FlowID: 22 (UDP 10.1.1.1/9 --> 10.1.1.5/49153)
-	TX bitrate: 9.10 kbit/s
-	RX bitrate: 9.11 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 4.51 ms
+FlowID: 22 (UDP 10.1.1.1/9 --> 10.1.1.3/49153)
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.81 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 6.42 ms
 	Packet Loss Ratio: 0.00 %
-FlowID: 23 (UDP 10.1.1.1/9 --> 10.1.1.8/49153)
-	TX bitrate: 9.11 kbit/s
-	RX bitrate: 9.12 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 4.38 ms
+FlowID: 23 (UDP 10.1.1.1/9 --> 10.1.1.7/49153)
+	TX bitrate: 4.81 kbit/s
+	RX bitrate: 4.81 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 3.73 ms
 	Packet Loss Ratio: 0.00 %
-FlowID: 24 (UDP 10.1.1.1/9 --> 10.1.1.15/49153)
-	TX bitrate: 9.09 kbit/s
-	RX bitrate: 10.16 kbit/s
-	TX Packets: 20
-	RX Packets: 20
-	Mean Delay: 78.72 ms
+FlowID: 24 (UDP 10.1.1.1/9 --> 10.1.1.8/49153)
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.81 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 4.95 ms
 	Packet Loss Ratio: 0.00 %
-Loss Flow Ratio: 16.67% (4/24)
+FlowID: 25 (UDP 10.1.1.1/9 --> 10.1.1.15/49153)
+	TX bitrate: 4.80 kbit/s
+	RX bitrate: 4.81 kbit/s
+	TX Packets: 10
+	RX Packets: 10
+	Mean Delay: 4.83 ms
+	Packet Loss Ratio: 0.00 %
+Lost Flow Ratio: 12.00% (3/25)
+Lost Clients Ratio: 21.43% (3/14)
+Lost clients: ['10.1.1.5', '10.1.1.9', '10.1.1.11']
