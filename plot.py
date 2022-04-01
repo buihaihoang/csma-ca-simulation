@@ -24,12 +24,13 @@ tpmNp = np.array(lst, dtype= np.float32)
 #print(tpmNp)
 
 
-axisX = [x for x in range(29)]
+axisX = [x for x in range(2, 31)]
 #rint(axisX)
-plt.plot(axisX, lst, '--xr')
+plt.plot(axisX, lst, 'xr')
 plt.title("Visualization")
 plt.xlabel("Nodes")
-plt.ylabel("Percentage")
+plt.ylabel("Client Loss Ratio")
+plt.savefig(sys.argv[1].replace("csv", "pdf"))
 plt.show()
 
 

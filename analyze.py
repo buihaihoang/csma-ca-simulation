@@ -66,5 +66,5 @@ print(f"Lost clients: {lostClients}")
 
 if (len(sys.argv) > 2):
     file = open(f"summarizedData/{sys.argv[2]}.csv", mode = "a" )
-    file.write(str(f"{lostFlows/totalFlows*100:.2f} "))
+    file.write(str(f"{len(lostClients)/totalClients*100:.2f} "))
 
