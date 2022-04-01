@@ -10,6 +10,7 @@
 1. cd into NSFinalProject: ```cd NSFinalProject```
 2. To analyze an XML file: ```python3 analyze.py flowData/path_to_file```
 3. To analyze all XML file after running with 2..30 nodes: ```./analyzeAll.sh configuration``` or ```bash analyzeAll.sh configuration```
+4. After analyzing data is summarized automatically and saved at *analyzedData/"configuration"* and *summarizedData/"configuration"*
 
 ## To summarize
 1. cd into NSFinalProject: ```cd NSFinalProject```
