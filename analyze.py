@@ -59,6 +59,10 @@ for flow in et.findall("FlowStats/Flow"):
         lostClients.append(srcAdd)
     packetLossRatio = (txPackets - rxPackets) / txPackets * 100
     print(f"\tPacket Loss Ratio: {packetLossRatio:.2f} %")
+    
+file = open("percent.csv", mode = "a" )
+file.write(str(f"{lostFlows/totalFlows*100:.2f} "))
+
 print(f"Lost Flow Ratio: {lostFlows/totalFlows*100:.2f}% ({lostFlows}/{totalFlows})")
 print(f"Lost Clients Ratio: {len(lostClients)/totalClients*100:.2f}% ({len(lostClients)}/{totalClients})")
 print(f"Lost clients: {lostClients}")
