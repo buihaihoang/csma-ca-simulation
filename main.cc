@@ -23,7 +23,7 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
     LogComponentEnable("UdpEchoClientApplication", LOG_LEVEL_INFO);
     LogComponentEnable("UdpEchoServerApplication", LOG_LEVEL_INFO);
   }
-  // Enable or Disable RTS/CTS by setting the CTS threshold
+  // Enable or Disable RTS/CTS by setting the RTS/CTS threshold
   UintegerValue threshold = 1000; // original value:500
   Config::SetDefault("ns3::WifiRemoteStationManager::RtsCtsThreshold", threshold);
 
@@ -54,7 +54,7 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
   NetDeviceContainer devices;
   devices = wifi.Install(phy, mac, nodes);
 
-  // Instantiate a MobilityHelper object and set some Attributes controlling the "position allocator" functionality
+  // Instantiate a MobilityHelper object and set some attributes controlling the "position allocator" functionality
   MobilityHelper mobility;
   mobility.SetPositionAllocator("ns3::GridPositionAllocator", "MinX", DoubleValue(0.0), "MinY",
                                 DoubleValue(0.0), "DeltaX", DoubleValue(5.0), "DeltaY",
@@ -71,7 +71,7 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
 
   // Use Ipv4AddressHelper to assign IP addresses to our device interfaces
   Ipv4AddressHelper address;
-  // Use the network 10.1.1.0 to create the two  addresses needed for our CSMA devices
+  // Use the network 10.1.1.0 to create the addresses needed for our devices
   address.SetBase("10.1.1.0", "255.255.255.0");
   // Save the created interfaces in a container to make it easy to pull out addressing information later for use in setting up the applications
   Ipv4InterfaceContainer nodeInterfaces;
@@ -80,7 +80,7 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
   // Create a UdpEchoServerHelper and provide the required Attribute - the server port number
   UdpEchoServerHelper echoServer(9);
 
-  // Instantiate the server on the second node that has CSMA device
+  // Instantiate the server on the node choosen
   ApplicationContainer serverApps = echoServer.Install(nodes.Get(serverNode));
   serverApps.Start(Seconds(2.0));
   serverApps.Stop(Seconds(simTime));
@@ -90,7 +90,7 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
   echoClient.SetAttribute("MaxPackets", UintegerValue(maxPackets));
   echoClient.SetAttribute("Interval", TimeValue(Seconds(interval)));
   echoClient.SetAttribute("PacketSize", UintegerValue(packetSize));
-  // Install the client on every other node
+  // Install the client on every other node except the serverNode
   for (uint32_t i = 0; i < nNodes; i++)
   {
     if (i == serverNode) continue;
@@ -106,20 +106,22 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
     phy.EnablePcap("final", devices.Get(2), true);
   }
 
-
+  // Install flowMonitor to collect data
   Ptr<FlowMonitor> flowMonitor;
   FlowMonitorHelper flowHelper;
   flowMonitor = flowHelper.InstallAll();
 
+  // Use netanim to visualize the experiment
   char animfile[100];
-  sprintf(animfile, "anim-%d-nodes.xml", nNodes);
+  sprintf(animfile, "anim-%d-nodes.xml", nNodes); // Save the result in an xml file
   AnimationInterface anim(animfile);
   Simulator::Stop(Seconds(simTime));
   Simulator::Run();
 
   char filename[100];
   sprintf(filename, "final-%d-nodes.xml", nNodes);
-  flowMonitor->SerializeToXmlFile(filename, true, true);
+  flowMonitor->SerializeToXmlFile(filename, true, true); // Save the result of flow monitor in an xml file
+  
   Simulator::Destroy();
 }
 
