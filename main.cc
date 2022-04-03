@@ -56,10 +56,13 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
 
   // Instantiate a MobilityHelper object and set some attributes controlling the "position allocator" functionality
   MobilityHelper mobility;
-  mobility.SetPositionAllocator("ns3::GridPositionAllocator", "MinX", DoubleValue(0.0), "MinY",
-                                DoubleValue(0.0), "DeltaX", DoubleValue(5.0), "DeltaY",
-                                DoubleValue(5.0), "GridWidth", UintegerValue(5), "LayoutType",
-                                StringValue("RowFirst"));
+  mobility.SetPositionAllocator("ns3::GridPositionAllocator", 
+                                "MinX", DoubleValue(0.0), 
+                                "MinY", DoubleValue(0.0), 
+                                "DeltaX", DoubleValue(5.0), 
+                                "DeltaY", DoubleValue(5.0), 
+                                "GridWidth", UintegerValue(5), 
+                                "LayoutType", StringValue("RowFirst"));
 
   // Set the mobility model to be ns3::ConstantPositionMoblityModel to fixed the position of the devices
   mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
@@ -87,13 +90,13 @@ void experiment(uint32_t nNodes, uint32_t packetSize, bool verbose, bool pcap, u
 
   // Create a UdpEchoClientHelper and provide the required Attributes - the remote address and port
   UdpEchoClientHelper echoClient(nodeInterfaces.GetAddress(serverNode), 9);
-  echoClient.SetAttribute("MaxPackets", UintegerValue(maxPackets));
-  echoClient.SetAttribute("Interval", TimeValue(Seconds(interval)));
-  echoClient.SetAttribute("PacketSize", UintegerValue(packetSize));
+  echoClient.SetAttribute("MaxPackets", UintegerValue(maxPackets)); // Default is 10
+  echoClient.SetAttribute("Interval", TimeValue(Seconds(interval)));// Default is 1s
+  echoClient.SetAttribute("PacketSize", UintegerValue(packetSize)); // Default is 512B
   // Install the client on every other node except the serverNode
   for (uint32_t i = 0; i < nNodes; i++)
   {
-    if (i == serverNode) continue;
+    if (i == serverNode) continue; // Exclude the server node
     ApplicationContainer clientApp = echoClient.Install(nodes.Get(i));
     clientApp.Start(Seconds(2.0));
     clientApp.Stop(Seconds(simTime));
